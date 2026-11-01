@@ -1,0 +1,6 @@
+backend/out/
+*.class
+.env
+voltdrive-data.ser
+tiles-cache/
+node_modules/

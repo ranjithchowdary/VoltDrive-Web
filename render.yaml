@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: voltdrive-web
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: "10000"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: voltdrive-db
+          property: connectionString
+databases:
+  - name: voltdrive-db
+    databaseName: voltdrive
+    user: voltdrive
